@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>mainPage</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{styles/mainStyles.css}">
+</head>
+<body>
+<div>
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>Иконка</th>
+                <th>Название</th>
+                <th>Состояние сайта</th>
+                <th>Аудитория</th>
+                <th>Ссылка</th>
+                <th>Тип</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="el : ${allObject}">
+                <td><img th:src="${el.favicon_url}" ></td>
+                <td th:text="${el.name}"></td>
+                <td th:text="${el.site_state}"></td>
+                <td th:text="${el.audience}"></td>
+                <td>
+                    <a th:href="${el.site_url}" th:text="${el.site_url}"></a>
+                </td>
+                <td th:text="${el.site_type}"></td>
+             </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
